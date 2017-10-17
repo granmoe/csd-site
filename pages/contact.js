@@ -1,7 +1,14 @@
 import React, { PureComponent } from 'react'
 import Link from 'next/link'
 import Layout from '../components/layout'
-import { Button, Header, Form, Divider, Radio } from 'semantic-ui-react'
+import {
+  Button,
+  Header,
+  Form,
+  Divider,
+  Radio,
+  Checkbox
+} from 'semantic-ui-react'
 
 const Title = ({ name }) => (
   <div>
@@ -26,9 +33,8 @@ export default class ContactPage extends PureComponent {
         <Form>
           <Form.Input label='Enter Name' />
           { RADIO_BUTTONS.map(radioName => (
-            <Form.Field style={{ display: 'inline-block', marginRight: '15px' }}>
+            <Form.Field style={{ display: 'inline-block', marginRight: '15px' }} key={ radioName }>
               <Radio
-                key={ radioName }
                 name='radioGroup'
                 label={ radioName }
                 value={ radioName }
@@ -37,6 +43,10 @@ export default class ContactPage extends PureComponent {
               />
             </Form.Field>
           )) }
+          <Form.Field>
+            <Checkbox label="Zoo Volunteer" style={{ marginRight: '15px' }}/>
+            <Checkbox label="E-mail Newsletter" style={{ marginRight: '15px' }} />
+          </Form.Field>
           <Form.Input label='Enter Address' />
           <Form.Input label='Enter Postcode' type='number' />
           <Form.Input label='Enter E-mail' />
