@@ -1,6 +1,7 @@
+import React, { PureComponent } from 'react'
 import Link from 'next/link'
 import Layout from '../components/layout'
-import { Button, Header, Form, Divider } from 'semantic-ui-react'
+import { Button, Header, Form, Divider, Radio } from 'semantic-ui-react'
 
 const Title = ({ name }) => (
   <div>
@@ -9,14 +10,38 @@ const Title = ({ name }) => (
   </div>
 )
 
-export default () => (
-  <Layout>
-    <Title name="Contact Us" />
-    <Form>
-      <Form.Input label='Enter Name' />
-      <Form.Input label='Enter Address' />
-      <Form.Input label='Enter Postcode' type='number' />
-      <Form.Input label='Enter E-mail' />
-    </Form>
-  </Layout>
-)
+const RADIO_BUTTONS = ['Information', 'Donation', 'Adoption']
+
+export default class ContactPage extends PureComponent {
+  state = {
+    radioValue: null
+  }
+
+  render () {
+    const { radioValue } = this.state
+
+    return (
+      <Layout>
+        <Title name="Contact Us" />
+        <Form>
+          <Form.Input label='Enter Name' />
+          { RADIO_BUTTONS.map(radioName => (
+            <Form.Field style={{ display: 'inline-block', marginRight: '15px' }}>
+              <Radio
+                key={ radioName }
+                name='radioGroup'
+                label={ radioName }
+                value={ radioName }
+                checked={ radioValue === radioName }
+                onChange={() => this.setState({ radioValue: radioName })}
+              />
+            </Form.Field>
+          )) }
+          <Form.Input label='Enter Address' />
+          <Form.Input label='Enter Postcode' type='number' />
+          <Form.Input label='Enter E-mail' />
+        </Form>
+      </Layout>
+    )
+  }
+}
