@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Head from './head';
 import styled from 'styled-components';
 import {
+	Grid,
 	Sidebar,
 	Segment,
 	Button,
@@ -39,16 +40,29 @@ const LINKS = [
 export default ({children, pageName}) => (
 	<div>
 		<Head title="Adopt a Zoo Animal" />
-		<Menu animation="overlay" width="thin" icon="labeled" vertical inverted>
-			{LINKS.map(link => (
-				<Link href={link.href}>
-					<Menu.Item name={link.name} key={link.name}>
-						<Icon name={link.icon} />
-						{link.name}
-					</Menu.Item>
-				</Link>
-			))}
-		</Menu>
-		{children}
+		<Grid celled divided={false}>
+			<Grid.Row>
+				<Grid.Column width={3}>
+					<Menu
+						animation="overlay"
+						width="thin"
+						floated={true}
+						icon="labeled"
+						vertical
+						inverted
+					>
+						{LINKS.map(link => (
+							<Link href={link.href}>
+								<Menu.Item name={link.name} key={link.name}>
+									<Icon name={link.icon} />
+									{link.name}
+								</Menu.Item>
+							</Link>
+						))}
+					</Menu>
+				</Grid.Column>
+				<Grid.Column width={13}>{children}</Grid.Column>
+			</Grid.Row>
+		</Grid>
 	</div>
 );
