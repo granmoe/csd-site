@@ -37,7 +37,7 @@ Scenario Outline:
     And  I set <address> to the inputfield "input[name='address_field']"
     And  I set <postcode> to the inputfield "input[name='postcode_field']"
     And  I set <email> to the inputfield "input[name='email_field']"
-    And  I click on the element "#submit_message"
+    And  I click on the button "button[type='submit']"
     Then I expect the url to contain "contact_confirm"
 
     Examples:
