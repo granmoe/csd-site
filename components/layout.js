@@ -9,8 +9,8 @@ import {
 	Menu,
 	Image,
 	Icon,
-  Header,
-  Container
+	Header,
+	Container,
 } from 'semantic-ui-react';
 
 const LINKS = [
@@ -39,18 +39,14 @@ const LINKS = [
 export default ({children, pageName}) => (
 	<div>
 		<Head title="Adopt a Zoo Animal" />
-		<Menu
-			animation="overlay"
-			width="thin"
-			icon="labeled"
-			vertical
-			inverted
-		>
+		<Menu animation="overlay" width="thin" icon="labeled" vertical inverted>
 			{LINKS.map(link => (
-				<Menu.Item name={link.name} key={link.name}>
-					<Icon name={link.icon} />
-					<Link href={link.href}>{link.name}</Link>
-				</Menu.Item>
+				<Link href={link.href}>
+					<Menu.Item name={link.name} key={link.name}>
+						<Icon name={link.icon} />
+						{link.name}
+					</Menu.Item>
+				</Link>
 			))}
 		</Menu>
 		{children}
