@@ -34,10 +34,13 @@ const errorLabel = <Label color="red" pointing />;
 const RADIO_BUTTONS = ['Information', 'Donation', 'Adoption'];
 
 const styles = {
+  form: {
+    maxWidth: '400px',
+    margin: 'auto'
+  },
 	checkBox: {
 		display: 'inline-block',
 	},
-
 	radioButton: {
 		display: 'inline-block',
 		marginRight: '15px',
@@ -55,7 +58,7 @@ export default class ContactPage extends PureComponent {
 		return (
 			<Layout>
 				<Title name="Contact Us" />
-				<Form
+				<Form style={styles.form}
 					onValidSubmit={() => {
 						window.location = 'contact_confirm';
 					}}
@@ -79,7 +82,8 @@ export default class ContactPage extends PureComponent {
 								onChange={() => this.setState({radioValue: radioName})}
 							/>
 						</Form.Field>
-					))}
+          ))}
+          <br/>
 					Would you like to make a donation?
 					<Form.Input
 						labelPosition="right"

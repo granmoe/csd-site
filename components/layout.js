@@ -17,6 +17,7 @@ import {
 const Content = styled.div`
   margin-left: 100px;
   margin-top: 15px;
+  margin-right: 15px;
 `
 
 const LINKS = [
