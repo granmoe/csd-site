@@ -3,7 +3,8 @@ import sortBy from 'lodash.sortby'
 import Link from 'next/link'
 import Layout from '../components/layout'
 import Title from '../components/title'
-import { Select, Table } from 'semantic-ui-react'
+import AvailabilityModal from '../components/availability-modal'
+import { Select, Table, Button } from 'semantic-ui-react'
 
 const DATE_OPTIONS = [
   {
@@ -51,12 +52,13 @@ export default class extends PureComponent {
 
     this.setState({
       data: data.reverse(),
-      direction: direction === 'ascending' ? 'descending' : 'ascending'
+      direction: direction === 'ascending' ? 'descending' : 'ascending',
+      showModal: false
     })
   }
 
   render () {
-    const { column, direction, data } = this.state
+    const { column, direction, data, showModal } = this.state
 
     return (
       <Layout>
@@ -82,12 +84,14 @@ export default class extends PureComponent {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            { data.map(({ type, name, description }) => (
+            { data.map(({ type, name, description }, idx) => (
               <Table.Row key={name}>
                 <Table.Cell>{type}</Table.Cell>
                 <Table.Cell>{name}</Table.Cell>
                 <Table.Cell>{description}</Table.Cell>
-                <Table.Cell>Button Here</Table.Cell>
+                <Table.Cell>
+                  <AvailabilityModal text="Check Availability" />
+                </Table.Cell>
               </Table.Row>
             )) }
           </Table.Body>
