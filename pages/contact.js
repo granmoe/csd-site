@@ -35,7 +35,7 @@ export default class ContactPage extends PureComponent {
 						window.location = 'contact_confirm';
 					}}
 				>
-					<Form.Input label="Enter Name" name="name_field" />
+					<Form.Input label="Name" name="name_field" />
 					{RADIO_BUTTONS.map(radioName => (
 						<Form.Field
 							style={{display: 'inline-block', marginRight: '15px'}}
@@ -54,13 +54,13 @@ export default class ContactPage extends PureComponent {
 						<Checkbox label="Zoo Volunteer" style={{marginRight: '15px'}} />
 						<Checkbox label="E-mail Newsletter" style={{marginRight: '15px'}} />
 					</Form.Field>
-					<Form.Input label="Enter Address" name="address_field" />
+					<Form.Input label="Address" name="address_field" />
 					<Form.Input
-						label="Enter Postcode"
+						label="Postcode"
 						type="number"
 						name="postcode_field"
 					/>
-					<Form.Input label="Enter E-mail" name="email_field" />
+					<Form.Input label="E-mail" name="email_field" />
 					<Button type="submit">Submit</Button>
 				</Form>
 			</Layout>
