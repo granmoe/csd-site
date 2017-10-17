@@ -5,7 +5,7 @@ import Layout from '../components/layout'
 import Title from '../components/title'
 import { Select, Table } from 'semantic-ui-react'
 
-const dateOptions = [
+const DATE_OPTIONS = [
   {
     key: 'today',
     value: 'today',
@@ -24,18 +24,16 @@ const dateOptions = [
   }
 ]
 
-const tableData = [
-  { type: 'John', name: 15, description: 'Male' },
-  { type: 'Amber', name: 40, description: 'Female' },
-  { type: 'Leslie', name: 25, description: 'Female' },
-  { type: 'Ben', name: 70, description: 'Male' }
+const TABLE_DATA = [
+  { type: 'Lion', name: 'Bob', description: 'Just a typical lion' },
+  { type: 'Monkey', name: 'George', description: 'A monkey with a criminal mind' }
 ]
 
 export default class extends PureComponent {
   state = {
     column: null,
-    data: tableData,
-    direction: null
+    direction: null,
+    data: TABLE_DATA
   }
 
   handleSort = clickedColumn => () => {
@@ -58,13 +56,13 @@ export default class extends PureComponent {
   }
 
   render () {
-    const { column, data, direction } = this.state
+    const { column, direction, data } = this.state
 
     return (
       <Layout>
         <Title name="Adoption Options" />
 
-        <Select placeholder="Please select start date" options={ dateOptions } />
+        <Select placeholder="Please select start date" options={ DATE_OPTIONS } />
 
         <Table sortable celled fixed style={{ maxWidth: '700px' }}>
           <Table.Header>
