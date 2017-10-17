@@ -15,18 +15,22 @@ import {
 const LINKS = [
 	{
 		name: 'About',
+		icon: 'help',
 		href: '/about',
 	},
 	{
 		name: 'Contact',
+		icon: 'mail',
 		href: '/contact',
 	},
 	{
 		name: 'Adoption',
+		icon: 'gift',
 		href: '/adoption',
 	},
 	{
 		name: 'Home',
+		icon: 'home',
 		href: '/',
 	},
 ];
@@ -34,30 +38,20 @@ const LINKS = [
 export default ({children, pageName}) => (
 	<div>
 		<Head title="Adopt a Zoo Animal" />
-		<Sidebar.Pushable as={Segment}>
-			<Sidebar
-				as={Menu}
-				animation="overlay"
-				width="thin"
-				visible={true}
-				icon="labeled"
-				vertical
-				inverted
-			>
-				{LINKS.map(link => (
-					<Menu.Item name={link.name}>
-						<Icon name={link.name.toLowerCase()} />
-						{link.name}
-					</Menu.Item>
-				))}
-			</Sidebar>
-			{children}
-			{/* <Sidebar.Pusher>
-	  <Segment basic>
-		<Header as='h3'>Application Content</Header>
-		<Image src='/assets/images/wireframe/paragraph.png' />
-	  </Segment>
-	</Sidebar.Pusher> */}
-		</Sidebar.Pushable>
+		<Menu
+			animation="overlay"
+			width="thin"
+			icon="labeled"
+			vertical
+			inverted
+		>
+			{LINKS.map(link => (
+				<Menu.Item name={link.name} key={link.name}>
+					<Icon name={link.icon} />
+					<Link href={link.href}>{link.name}</Link>
+				</Menu.Item>
+			))}
+		</Menu>
+		{children}
 	</div>
 );
