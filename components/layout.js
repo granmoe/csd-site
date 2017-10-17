@@ -46,22 +46,23 @@ export default ({children, pageName}) => (
 					<Menu
 						animation="overlay"
 						width="thin"
-						floated={true}
 						icon="labeled"
 						vertical
 						inverted
 					>
-						{LINKS.map(({ href, name, icon}) => (
-							<Link href={href} key={ name }>
-								<Menu.Item name={name} key={name}>
-									<Icon name={icon} />
+						{LINKS.map(({href, name, icon}) => (
+							<Link href={href} key={name}>
+								<Menu.Item fitted="horizontally" name={name}>
 									{name}
+									<Icon name={icon} />
 								</Menu.Item>
 							</Link>
 						))}
 					</Menu>
 				</Grid.Column>
-				<Grid.Column width={13}>{children}</Grid.Column>
+				<Grid.Column width={13} stretched>
+					{children}
+				</Grid.Column>
 			</Grid.Row>
 		</Grid>
 	</div>
