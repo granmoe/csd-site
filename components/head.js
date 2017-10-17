@@ -1,9 +1,24 @@
 import NextHead from 'next/head'
 import { string } from 'prop-types'
+import { injectGlobal } from 'styled-components';
 
 const defaultDescription = ''
 const defaultOGURL = ''
 const defaultOGImage = ''
+
+injectGlobal`
+  @font-face {
+    font-family: 'Operator Mono';
+    src: url('../fonts/Operator-Mono.ttf');
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  }
+`;
 
 const Head = (props) => (
   <NextHead>
