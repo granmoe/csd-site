@@ -9,7 +9,8 @@ import {
 	Menu,
 	Image,
 	Icon,
-	Header,
+  Header,
+  Container
 } from 'semantic-ui-react';
 
 const LINKS = [
