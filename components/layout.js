@@ -42,7 +42,7 @@ export default ({children, pageName}) => (
 		<Head title="Adopt a Zoo Animal" />
 		<Grid celled divided={false}>
 			<Grid.Row>
-				<Grid.Column width={3}>
+				<Grid.Column width={3} style={{ backgroundColor: '#1b1c1d' }}>
 					<Menu
 						animation="overlay"
 						width="thin"
