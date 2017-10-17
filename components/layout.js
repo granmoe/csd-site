@@ -15,7 +15,8 @@ import {
 } from 'semantic-ui-react';
 
 const Content = styled.div`
-	marginLeft: '100px';
+  margin-left: 100px;
+  margin-top: 15px;
 `
 
 const LINKS = [
@@ -63,6 +64,6 @@ export default ({children, pageName}) => (
 				))}
 			</Menu>
 		</Container>
-		<Content style={{marginLeft: '100px'}}>{children}</Content>
+		<Content>{children}</Content>
 	</div>
 );
