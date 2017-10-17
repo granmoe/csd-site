@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Head from './head'
 import styled from 'styled-components'
+import { Container } from 'semantic-ui-react'
 
 const LINKS = [
   {
@@ -22,6 +23,8 @@ const LINKS = [
 export default ({ children, pageName }) => (
   <div>
     <Head title="Adopt a Zoo Animal" />
-    { children }
+    <Container>
+      { children }
+    </Container>
   </div>
 )
