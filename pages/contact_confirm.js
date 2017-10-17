@@ -8,7 +8,7 @@ export default () => (
 		<Title name="We have your message">
 			Many thanks for your message. We will contact you about your query as soon
 			as possible. In the mean time why not have a look at our list of animals
-			we have available for adoption in the <Link href="adoption">adoption</Link> page.
+			we have available for adoption in the <Link href="adoption"><a>adoption</a></Link> page.
 		</Title>
 	</Layout>
 );

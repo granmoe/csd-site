@@ -14,6 +14,10 @@ import {
 	Container,
 } from 'semantic-ui-react';
 
+const Content = styled.div`
+	marginLeft: '100px';
+`
+
 const LINKS = [
 	{
 		name: 'About',
@@ -40,30 +44,25 @@ const LINKS = [
 export default ({children, pageName}) => (
 	<div>
 		<Head title="Adopt a Zoo Animal" />
-		<Grid celled divided={false}>
-			<Grid.Row>
-				<Grid.Column width={3} style={{ backgroundColor: '#1b1c1d' }}>
-					<Menu
-						animation="overlay"
-						width="thin"
-						icon="labeled"
-						vertical
-						inverted
-					>
-						{LINKS.map(({href, name, icon}) => (
-							<Link href={href} key={name}>
-								<Menu.Item fitted="horizontally" name={name}>
-									{name}
-									<Icon name={icon} />
-								</Menu.Item>
-							</Link>
-						))}
-					</Menu>
-				</Grid.Column>
-				<Grid.Column width={13} stretched>
-					{children}
-				</Grid.Column>
-			</Grid.Row>
-		</Grid>
+		<Container>
+			<Menu
+				fixed="left"
+				animation="overlay"
+				width="thin"
+				icon="labeled"
+				vertical
+				inverted
+			>
+				{LINKS.map(({href, name, icon}) => (
+					<Link href={href} key={name}>
+						<Menu.Item fitted="horizontally" name={name}>
+							{name}
+							<Icon name={icon} />
+						</Menu.Item>
+					</Link>
+				))}
+			</Menu>
+		</Container>
+		<Content style={{marginLeft: '100px'}}>{children}</Content>
 	</div>
 );
