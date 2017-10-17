@@ -24,7 +24,7 @@ export default class ContactPage extends PureComponent {
       <Layout>
         <Title name="Contact Us" />
         <Form>
-          <Form.Input label='Enter Name' />
+          <Form.Input label='Enter Name'  name="name_field"/>
           { RADIO_BUTTONS.map(radioName => (
             <Form.Field style={{ display: 'inline-block', marginRight: '15px' }}>
               <Radio
@@ -37,9 +37,9 @@ export default class ContactPage extends PureComponent {
               />
             </Form.Field>
           )) }
-          <Form.Input label='Enter Address' />
-          <Form.Input label='Enter Postcode' type='number' />
-          <Form.Input label='Enter E-mail' />
+          <Form.Input label='Enter Address' name="address_field"/>
+          <Form.Input label='Enter Postcode' type='number'  name="postcode_field"/>
+          <Form.Input label='Enter E-mail'  name="email_field"/>
         </Form>
       </Layout>
     )

@@ -29,11 +29,11 @@ Feature:
 
 # Scenario: Submit the form
 Background:
-    Given I open the url "http://www.thetestroom.com/webapp/contact.html"
+    Given I open the url "http://localhost:3000/contact"
 Scenario Outline:
     When I set <name> to the inputfield "[name='name_field']"
-    And  I click on the element "#rinfo"
-    And  I click on the element "#cdona"
+    # And  I click on the element "#rinfo"
+    # And  I click on the element "#cdona"
     And  I set <address> to the inputfield "input[name='address_field']"
     And  I set <postcode> to the inputfield "input[name='postcode_field']"
     And  I set <email> to the inputfield "input[name='email_field']"
