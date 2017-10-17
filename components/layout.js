@@ -51,11 +51,11 @@ export default ({children, pageName}) => (
 						vertical
 						inverted
 					>
-						{LINKS.map(link => (
-							<Link href={link.href}>
-								<Menu.Item name={link.name} key={link.name}>
-									<Icon name={link.icon} />
-									{link.name}
+						{LINKS.map(({ href, name, icon}) => (
+							<Link href={href}>
+								<Menu.Item name={name} key={name}>
+									<Icon name={icon} />
+									{name}
 								</Menu.Item>
 							</Link>
 						))}
