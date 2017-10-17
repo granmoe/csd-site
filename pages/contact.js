@@ -4,11 +4,23 @@ import Layout from '../components/layout';
 import {
 	Button,
 	Header,
-	Form,
+	// Form,
 	Divider,
-	Radio,
-	Checkbox,
+	Label,
+	// Radio,
+	// Checkbox,
 } from 'semantic-ui-react';
+
+import {
+	Form,
+	Input,
+	TextArea,
+	Checkbox,
+	Radio,
+	RadioGroup,
+	Dropdown,
+	Select,
+} from 'formsy-semantic-ui-react';
 
 const Title = ({name}) => (
 	<div>
@@ -17,7 +29,20 @@ const Title = ({name}) => (
 	</div>
 );
 
+const errorLabel = <Label color="red" pointing />;
+
 const RADIO_BUTTONS = ['Information', 'Donation', 'Adoption'];
+
+const styles = {
+	checkBox: {
+		display: 'inline-block',
+	},
+
+	radioButton: {
+		display: 'inline-block',
+		marginRight: '15px',
+	},
+};
 
 export default class ContactPage extends PureComponent {
 	state = {
@@ -31,17 +56,22 @@ export default class ContactPage extends PureComponent {
 			<Layout>
 				<Title name="Contact Us" />
 				<Form
-					onSubmit={() => {
+					onValidSubmit={() => {
 						window.location = 'contact_confirm';
 					}}
 				>
-					<Form.Input label="Enter Name" name="name_field" />
+					<Form.Input
+						name="name_field"
+						label="Enter Name"
+						required
+						validationErrors={{
+							isDefaultRequiredValue: 'Name is Required',
+						}}
+						errorLabel={errorLabel}
+					/>
 					{RADIO_BUTTONS.map(radioName => (
-						<Form.Field
-							style={{display: 'inline-block', marginRight: '15px'}}
-							key={radioName}
-						>
-							<Radio
+						<Form.Field style={styles.radioButton} key={radioName}>
+							<Form.Radio
 								name="radioGroup"
 								label={radioName}
 								value={radioName}
@@ -50,17 +80,56 @@ export default class ContactPage extends PureComponent {
 							/>
 						</Form.Field>
 					))}
-					<Form.Field>
-						<Checkbox label="Zoo Volunteer" style={{marginRight: '15px'}} />
-						<Checkbox label="E-mail Newsletter" style={{marginRight: '15px'}} />
-					</Form.Field>
-					<Form.Input label="Enter Address" name="address_field" />
+					Would you like to make a donation?
 					<Form.Input
-						label="Enter Postcode"
-						type="number"
-						name="postcode_field"
+						labelPosition="right"
+						type="text"
+						placeholder="Amount"
+						name="donation_amount"
+					>
+						<Label basic>$</Label>
+						<input />
+						<Label>.00</Label>
+					</Form.Input>
+					<Form.Field>
+						<Checkbox
+							name="volunteer"
+							label="Zoo Volunteer"
+							style={styles.checkBox}
+						/>
+						<Checkbox
+							name="volunteer"
+							label="Email Newsletter"
+							style={styles.checkBox}
+						/>
+					</Form.Field>
+					<Form.Input
+						name="address_field"
+						label="Enter Address"
+						required
+						validationErrors={{
+							isDefaultRequiredValue: 'Address is Required',
+						}}
+						errorLabel={errorLabel}
 					/>
-					<Form.Input label="Enter E-mail" name="email_field" />
+					<Form.Input
+						name="postcode_field"
+						label="Enter Post Code"
+						required
+						validationErrors={{
+							isDefaultRequiredValue: 'Post Cod is Required',
+						}}
+						errorLabel={errorLabel}
+					/>
+					<Form.Input
+						name="email_field"
+						label="Enter Email"
+						required
+						validationErrors={{
+							isDefaultRequiredValue: 'Email is Required',
+						}}
+						errorLabel={errorLabel}
+					/>
 					<Button type="submit">Submit</Button>
 				</Form>
 			</Layout>
