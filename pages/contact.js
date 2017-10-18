@@ -36,7 +36,6 @@ const RADIO_BUTTONS = ['Information', 'Donation', 'Adoption'];
 const styles = {
   form: {
     maxWidth: '400px',
-    margin: 'auto'
   },
 	checkBox: {
 		display: 'inline-block',

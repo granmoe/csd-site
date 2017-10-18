@@ -22,25 +22,22 @@ const Content = styled.div`
 
 const LINKS = [
 	{
-		name: 'About',
-		icon: 'help',
-		href: '/about',
-	},
-	{
-		name: 'Contact',
-		icon: 'mail',
-		href: '/contact',
-	},
-	{
-		name: 'Adoption',
-		icon: 'gift',
-		href: '/adoption',
-	},
-	{
 		name: 'Home',
 		icon: 'home',
 		href: '/',
-	},
+	}, {
+		name: 'Adoption',
+		icon: 'gift',
+		href: '/adoption',
+	}, {
+		name: 'Contact',
+		icon: 'mail',
+		href: '/contact',
+	}, {
+		name: 'About',
+		icon: 'help',
+		href: '/about',
+	}
 ];
 
 export default ({children, pageName}) => (
