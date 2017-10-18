@@ -4,11 +4,8 @@ import Layout from '../components/layout';
 import {
 	Button,
 	Header,
-	// Form,
 	Divider,
 	Label,
-	// Radio,
-	// Checkbox,
 } from 'semantic-ui-react';
 
 import {

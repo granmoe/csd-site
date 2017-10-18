@@ -5,6 +5,11 @@ To run integration tests, navigate to `integrationtests` and run:
 `yarn run wdio`
 
 
+TODO: 
+
+- add images to adoption page
+- add a google ads component at bottom of page
+
 
 This project was bootstrapped with [Create Next App](https://github.com/segmentio/create-next-app).
 
